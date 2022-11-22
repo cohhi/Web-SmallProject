@@ -1,0 +1,73 @@
+<!--author:steam-404-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>school</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <style>
+        html, body, #container {
+            height: 100%;
+            width: 100%;
+        }
+
+        .amap-icon img {
+            width: 25px;
+            height: 34px;
+        }
+
+        .amap-marker-label{
+            border: 0;
+            background-color: transparent;
+        }
+
+        .info{
+            position: relative;
+            margin:0;
+            top: 0;
+            right: 0;
+            min-width: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=2.0&key=d05495e692ef643fe429b6c33e17ca62"></script>
+<script type="text/javascript">
+    var map = new AMap.Map('container', {
+        // resizeEnable: true,
+        rotateEnable:true,
+        pitchEnable:true,
+        center:[108.708469,34.356543],
+        zoom: 16,
+        pitch: 50,
+        rotation: -15,
+        viewMode:'3D', //开启3D视图,默认为关闭
+        zooms:[2,20],
+    });
+
+    var marker = new AMap.Marker({
+        position: map.getCenter(),
+        icon: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
+        anchor:'bottom-center',
+        offset: new AMap.Pixel(0, 0)
+    });
+
+    marker.setMap(map);
+
+    // 设置鼠标划过点标记显示的文字提示
+    marker.setTitle('鸡你太美');
+
+    // 设置label标签
+    // label默认蓝框白底左上角显示，样式className为：amap-marker-label
+    marker.setLabel({
+        direction:'right',
+        offset: new AMap.Pixel(10, 0),  //设置文本标注偏移量
+        content: "<div class='info'>阿巴阿巴</div>", //设置文本标注内容
+    });
+</script>
+</body>
+</html>
