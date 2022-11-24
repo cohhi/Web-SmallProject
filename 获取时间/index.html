@@ -6,11 +6,22 @@
     <title>当前时间</title>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 </head>
+<style>
+    img {
+        width: 5vh;
+        height: 5vh;
+    }
+
+    #chooseTime, #nowTime {
+        text-align: center;
+    }
+</style>
 <body>
 <div>
-    <p id="chooseTime">Time</p>
-</div>
-<div id="nowTime">
+    <p id="chooseTime">
+        <img src="times.svg" alt="">
+    </p>
+    <p id="nowTime"></p>
 </div>
 <script>    //获取当前时间
 let nowTime = document.getElementById("nowTime");
@@ -53,28 +64,28 @@ let id = setInterval(function () {
     nowTime.innerHTML = result
 })
 //点击时间弹出显示时间
-$(function (){
+$(function () {
     $("#nowTime").hide()
 })
-$(function (){
-    $("#chooseTime").click(function (){
-        $("#nowTime").slideDown();
-        $("#chooseTime").slideUp();
+$(function () {
+    $("#chooseTime").click(function () {
+        $("#nowTime").slideDown(1000);
+        $("#chooseTime").slideUp(1000);
     })
 })
-$(function (){
-    $("#nowTime").click(function (){
-        $("#nowTime").slideUp();
-        $("#chooseTime").slideDown();
+$(function () {
+    $("#nowTime").click(function () {
+        $("#nowTime").slideUp(1000);
+        $("#chooseTime").slideDown(1000);
     })
 })
-$(function (){
-    $("#nowTime").dblclick(function (){
+$(function () {
+    $("#nowTime").dblclick(function () {
         alert("太快喽,不可以这样哦,达咩哟,达咩达咩!")
     })
 })
-$(function (){
-    $("#chooseTime").dblclick(function (){
+$(function () {
+    $("#chooseTime").dblclick(function () {
         alert("太快喽,不可以这样哦,达咩哟,达咩达咩!")
     })
 })
