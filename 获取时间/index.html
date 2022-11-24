@@ -1,0 +1,83 @@
+<!--author:steam-404-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>当前时间</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+</head>
+<body>
+<div>
+    <p id="chooseTime">Time</p>
+</div>
+<div id="nowTime">
+</div>
+<script>    //获取当前时间
+let nowTime = document.getElementById("nowTime");
+let id = setInterval(function () {
+    let result
+    let time = new Date();  //日期对象
+    let year = time.getFullYear();  //获取年份
+    let month = time.getMonth() + 1;    //获取月份
+    let days = time.getDay();        //获取星期数
+    let day = undefined;
+    switch (days) {
+        case 0:
+            day = "星期日";
+            break;
+        case 1:
+            day = "星期一";
+            break;
+        case 2:
+            day = "星期二";
+            break;
+        case 3:
+            day = "星期三";
+            break;
+        case 4:
+            day = "星期四";
+            break;
+        case 5:
+            day = "星期五";
+            break;
+        case 6:
+            day = "星期六";
+            break;
+
+    }
+    let date = time.getDate();      //获取日数
+    let hour = time.getHours();     //获取小时
+    let minute = time.getMinutes(); //获取分钟
+    let second = time.getSeconds(); //获取秒数
+    result = year + "年" + month + "月" + date + "日\t" + day + "\t" + hour + ":" + minute + ":" + second;
+    nowTime.innerHTML = result
+})
+//点击时间弹出显示时间
+$(function (){
+    $("#nowTime").hide()
+})
+$(function (){
+    $("#chooseTime").click(function (){
+        $("#nowTime").slideDown();
+        $("#chooseTime").slideUp();
+    })
+})
+$(function (){
+    $("#nowTime").click(function (){
+        $("#nowTime").slideUp();
+        $("#chooseTime").slideDown();
+    })
+})
+$(function (){
+    $("#nowTime").dblclick(function (){
+        alert("太快喽,不可以这样哦,达咩哟,达咩达咩!")
+    })
+})
+$(function (){
+    $("#chooseTime").dblclick(function (){
+        alert("太快喽,不可以这样哦,达咩哟,达咩达咩!")
+    })
+})
+</script>
+</body>
+</html>
