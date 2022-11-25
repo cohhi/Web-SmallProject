@@ -1,0 +1,41 @@
+<!--author:steam-404-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example02</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+</head>
+<style>
+    body{
+        background: antiquewhite;
+        transition: 1s;
+    }
+</style>
+<script>
+    $(function (){
+        $("#sun").click(function (){
+            $("body").css("background","khaki","transition","1s")
+        })
+    })
+    $(function (){
+        $("#sun").dblclick(function (){
+            $("body").css("background","white","transition","1s")
+        })
+    })
+    $(function (){
+        $("#moon").click(function (){
+            $("body").css("background","#4a4a4a","transition","1s")
+        })
+    })
+    $(function (){
+        $("#moon").dblclick(function (){
+            $("body").css("background","black","transition","1s")
+        })
+    })
+</script>
+<body>
+<img id="sun" src="sun.svg" alt=""><br>
+<img id="moon" src="moon.svg" alt="">
+</body>
+</html>
