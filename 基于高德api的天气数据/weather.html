@@ -1,0 +1,143 @@
+<!--author:steam-404-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>天气</title>
+</head>
+<body>
+
+<div id="weather">
+    <div id="now">  <!--当前天气信息        -->
+        <p>看控制台</p>
+    </div>
+</div>
+
+<div id="container"></div>
+<!--地图容器-->
+<script type="text/javascript">
+    window._AMapSecurityConfig = {
+        securityJsCode: 'dff8c1a052ca91e592a0a4e40ef92e40',
+        //     这是我的安全密钥:    dff8c1a052ca91e592a0a4e40ef92e40
+    }
+</script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=d05495e692ef643fe429b6c33e17ca62">
+    <!--    这是我的Key:    d05495e692ef643fe429b6c33e17ca62-->
+    // 不可以有非分之想哦,达咩
+</script>
+<script>
+    //加载天气查询插件
+    AMap.plugin('AMap.Weather', function () {
+        //创建天气查询实例
+        let weather = new AMap.Weather();
+        weather.getLive('咸阳', function (err, data) {
+            //执行实时天气信息查询
+            // console.log(err, data);
+            // console.log(data)
+            console.log("-----实时天气-----")
+            let info=data.info;
+            //状态信息
+            let province=data.province;
+            //城市信息:省
+            let city=data.city;
+            //城市信息:市
+            let addressCode=data.adcode;
+            //区域编码
+            let weather=data.weather;
+            //当前天气
+            let temperature=data.temperature;
+            //当前气温
+            let windDirection=data.windDirection;
+            //风向
+            let windPower=data.windPower;
+            //风力
+            let humidity=data.humidity;
+            //空气湿度
+            let reportTime=data.reportTime;
+            //数据发布时间
+            console.log("返回状态:"+info)
+            console.log("地区(省):"+province)
+            console.log("地区(市):"+city)
+            console.log("区域编码:"+addressCode)
+            console.log("天气:"+weather)
+            console.log("当前气温:"+temperature+"°C")
+            console.log("风向:"+windDirection)
+            console.log("风力:"+windPower)
+            console.log("空气湿度:"+humidity+"%")
+            console.log("数据更新时间:"+reportTime)
+            console.log("--------------------------")
+        });
+        weather.getForecast('咸阳',function (err,data){
+            //天气预报
+            // console.log(err,data)
+            console.log("-----天气预报-----")
+            let info=data.info;
+            //状态信息
+            let province=data.province;
+            //城市信息:省
+            let city=data.city;
+            //城市信息:市
+            let addressCode=data.adcode;
+            //区域编码
+            let reportTime=data.reportTime;
+            //数据发布时间
+            let steam_404Weather=data.forecasts;
+            //未来三天天气数组
+            let steam_404WeatherDay1=data.forecasts[1];
+            //明天的天气
+            let steam_404WeatherDay2=data.forecasts[2];
+            //后天的天气
+            let steam_404WeatherDay3=data.forecasts[3];
+            //大后天
+
+            console.log("状态信息:"+info)
+            console.log("城市信息:省"+province)
+            console.log("城市信息:市"+city)
+            console.log("区域编码:"+addressCode)
+            console.log("数据发布时间:"+reportTime)
+
+
+            console.log("===================================")
+            console.log("明天天气预报:")
+            console.log("星期:"+steam_404WeatherDay1.week)
+            console.log("日期:"+steam_404WeatherDay1.date)
+            console.log("气温:"+steam_404WeatherDay1.dayTemp+"°C")
+            console.log("天气:"+steam_404WeatherDay1.dayWeather)
+            console.log("风向:"+steam_404WeatherDay1.dayWindDir)
+            console.log("风速:"+steam_404WeatherDay1.dayWindPower)
+            console.log("夜间天气:"+steam_404WeatherDay1.nightWeather)
+            console.log("夜间气温:"+steam_404WeatherDay1.nightTemp)
+            console.log("夜间风向:"+steam_404WeatherDay1.nightWindDir)
+            console.log("夜间风速:"+steam_404WeatherDay1.nightWindPower)
+            console.log("===================================")
+            console.log("星期:"+steam_404WeatherDay3.week)
+            console.log("日期:"+steam_404WeatherDay3.date)
+            console.log("气温:"+steam_404WeatherDay3.dayTemp+"°C")
+            console.log("天气:"+steam_404WeatherDay3.dayWeather)
+            console.log("风向:"+steam_404WeatherDay3.dayWindDir)
+            console.log("风速:"+steam_404WeatherDay3.dayWindPower)
+            console.log("夜间天气:"+steam_404WeatherDay3.nightWeather)
+            console.log("夜间气温:"+steam_404WeatherDay3.nightTemp)
+            console.log("夜间风向:"+steam_404WeatherDay3.nightWindDir)
+            console.log("夜间风速:"+steam_404WeatherDay3.nightWindPower)
+            console.log("后天天气预报:")
+            console.log("星期:"+steam_404WeatherDay3.week)
+            console.log("日期:"+steam_404WeatherDay3.date)
+            console.log("气温:"+steam_404WeatherDay3.dayTemp+"°C")
+            console.log("天气:"+steam_404WeatherDay3.dayWeather)
+            console.log("风向:"+steam_404WeatherDay3.dayWindDir)
+            console.log("风速:"+steam_404WeatherDay3.dayWindPower)
+            console.log("夜间天气:"+steam_404WeatherDay3.nightWeather)
+            console.log("夜间气温:"+steam_404WeatherDay3.nightTemp)
+            console.log("夜间风向:"+steam_404WeatherDay3.nightWindDir)
+            console.log("夜间风速:"+steam_404WeatherDay3.nightWindPower)
+            console.log("====================================")
+            console.log("大后天天气预报:")
+
+        });
+    });
+</script>
+
+</body>
+</html>
