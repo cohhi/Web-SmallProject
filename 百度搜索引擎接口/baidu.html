@@ -1,0 +1,25 @@
+<!--author:steam-404-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>com.baidu.www</title>
+</head>
+<body>
+<div>
+  <label>
+    <input id="userInput" type="text">
+  </label>
+  <button id="search" onclick="search()">搜索</button>
+</div>
+<script>
+  search =function () {
+    let userInput=document.getElementById("userInput")
+    // 获取输入对象
+      // 拼接数据内容形成百度链接
+    // console.log(search)
+    window.location.href="https://www.baidu.com/s?wd=" + userInput.value
+  }
+</script>
+</body>
+</html>
